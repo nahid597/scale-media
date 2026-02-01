@@ -2,5 +2,21 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./scale-media-backend-e2e"
+    },
+    {
+      "path": "./scale-media-backend"
+    },
+    {
+      "path": "./scale-media-frontend-e2e"
+    },
+    {
+      "path": "./scale-media-frontend"
+    },
+    {
+      "path": "./shared"
+    }
+  ]
 }
