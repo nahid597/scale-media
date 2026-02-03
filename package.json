@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-     "serve:all": "nx run-many --targets=serve --projects=scale-media-backend,scale-media-frontend --parallel",
-     "serve:backend": "nx serve scale-media-backend",
-     "serve:frontend": "nx serve scale-media-frontend",
-     "build:all": "nx run-many --targets=build --projects=scale-media-backend,scale-media-frontend --parallel",
-     "build:backend": "nx build scale-media-backend",
-     "build:frontend": "nx build scale-media-frontend"
+    "serve:all": "nx run-many --targets=serve --projects=scale-media-backend,scale-media-frontend --parallel",
+    "serve:backend": "nx serve scale-media-backend",
+    "serve:frontend": "nx serve scale-media-frontend",
+    "build:all": "nx run-many --targets=build --projects=scale-media-backend,scale-media-frontend --parallel",
+    "build:backend": "nx build scale-media-backend",
+    "build:frontend": "nx build scale-media-frontend",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "private": true,
   "devDependencies": {
