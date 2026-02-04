@@ -2,7 +2,7 @@ import { EJobStatus } from './job.status.enum';
 
 export class Job {
   constructor(
-    public id: number,
+    public id: string,
     public fileKey: string,
     public status: EJobStatus,
     public progress: number,
