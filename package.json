@@ -10,7 +10,11 @@
     "build:backend": "nx build scale-media-backend",
     "build:frontend": "nx build scale-media-frontend",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "migration:run": "cd scale-media-backend && ts-node --project tsconfig.typeorm.json -r tsconfig-paths/register src/data-source.ts",
+    "migration:revert": "cd scale-media-backend && npx typeorm-ts-node-commonjs migration:revert -d src/data-source.ts",
+    "migration:generate": "cd scale-media-backend && npx typeorm-ts-node-commonjs migration:generate -d src/data-source.ts",
+    "migration:create": "cd scale-media-backend && npx typeorm-ts-node-commonjs migration:create"
   },
   "private": true,
   "devDependencies": {
@@ -62,6 +66,7 @@
     "react-refresh": "^0.10.0",
     "ts-jest": "^29.4.0",
     "ts-node": "10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0",
