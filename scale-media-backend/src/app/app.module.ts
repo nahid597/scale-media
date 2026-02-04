@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/db.module';
 import { join } from 'path';
 import { UserModule } from './modules/users/user.module';
+import { JobModule } from './modules/jobs/job.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { UserModule } from './modules/users/user.module';
     }),
     DatabaseModule,
     UserModule,
+    JobModule,
   ],
   controllers: [AppController],
   providers: [AppService],
