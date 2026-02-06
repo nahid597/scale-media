@@ -7,6 +7,7 @@ import { DatabaseModule } from './database/db.module';
 import { join } from 'path';
 import { UserModule } from './modules/users/user.module';
 import { JobModule } from './modules/jobs/job.module';
+import { StorageModule } from './modules/storage/storage.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { JobModule } from './modules/jobs/job.module';
     DatabaseModule,
     UserModule,
     JobModule,
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
