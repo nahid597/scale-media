@@ -38,9 +38,16 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Environment variables
+.env
+.env.local
+.env.production.local
+.env.development.local
+
 .nx/cache
 .nx/workspace-data
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
 test-output
+.env
