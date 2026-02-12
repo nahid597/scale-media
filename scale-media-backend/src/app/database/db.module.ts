@@ -11,7 +11,7 @@ import { dbConfig } from '../config/database.config';
       useFactory: () => ({
         ...dbConfig,
         autoLoadEntities: true,
-        synchronize: false, // Note: set to false in production
+        synchronize: true, // Note: set to false in production
       }),
     }),
   ],

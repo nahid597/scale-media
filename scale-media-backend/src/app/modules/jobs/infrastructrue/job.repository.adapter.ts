@@ -18,8 +18,11 @@ export class JobRepositoryAdapter implements JobRepositoryPort {
     return new Job(
       savedEntity.id,
       savedEntity.fileKey,
+      savedEntity.uploadId,
       savedEntity.status,
       savedEntity.progress,
+      savedEntity.userId,
+      savedEntity.metadata,
       savedEntity.createdAt,
       savedEntity.updatedAt
     );
@@ -31,7 +34,18 @@ export class JobRepositoryAdapter implements JobRepositoryPort {
       return null;
     }
     return jobs.map(
-      job => new Job(job.id, job.fileKey, job.status, job.progress, job.createdAt, job.updatedAt)
+      job =>
+        new Job(
+          job.id,
+          job.fileKey,
+          job.uploadId,
+          job.status,
+          job.progress,
+          job.userId,
+          job.metadata,
+          job.createdAt,
+          job.updatedAt
+        )
     );
   }
 
@@ -56,8 +70,11 @@ export class JobRepositoryAdapter implements JobRepositoryPort {
     return new Job(
       updatedJob.id,
       updatedJob.fileKey,
+      updatedJob.uploadId,
       updatedJob.status,
       updatedJob.progress,
+      updatedJob.userId,
+      updatedJob.metadata,
       updatedJob.createdAt,
       updatedJob.updatedAt
     );
@@ -68,6 +85,16 @@ export class JobRepositoryAdapter implements JobRepositoryPort {
     if (!job) {
       return null;
     }
-    return new Job(job.id, job.fileKey, job.status, job.progress, job.createdAt, job.updatedAt);
+    return new Job(
+      job.id,
+      job.fileKey,
+      job.uploadId,
+      job.status,
+      job.progress,
+      job.userId,
+      job.metadata,
+      job.createdAt,
+      job.updatedAt
+    );
   }
 }

@@ -8,6 +8,7 @@ import { join } from 'path';
 import { UserModule } from './modules/users/user.module';
 import { JobModule } from './modules/jobs/job.module';
 import { StorageModule } from './modules/storage/storage.module';
+import { QueueModule } from './modules/infrastructure/queue/queue.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { StorageModule } from './modules/storage/storage.module';
     UserModule,
     JobModule,
     StorageModule,
+    QueueModule,
   ],
   controllers: [AppController],
   providers: [AppService],
