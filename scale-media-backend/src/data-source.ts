@@ -3,7 +3,7 @@ import { dbConfig } from './app/config/database.config';
 
 export const AppDataSource = new DataSource({
   ...dbConfig,
-  entities: ['src/app/modules/**/infrastructure/*.orm-entity.ts'],
+  entities: ['src/app/modules/**/infrastructrue/*.orm-entity.ts'],
   migrations: ['src/app/database/migration/*.ts'],
   synchronize: false,
   logging: true,

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scale-media-worker
+  labels:
+    app: scale-media-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scale-media-worker
+  template:
+    metadata:
+      labels:
+        app: scale-media-worker
+    spec:
+      containers:
+        - name: worker
+          image: scale-media-worker:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: NODE_ENV
+              value: "production"
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: scale-media-worker-scaler
+spec:
+  scaleTargetRef:
+    name: scale-media-worker
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  pollingInterval: 15
+  cooldownPeriod: 30
+  triggers:
+    - type: redis
+      metadata:
+        hostFromEnv: REDIS_HOST
+        portFromEnv: REDIS_PORT
+        listName: "bull:media-processing:wait"
+        listLength: "5"
+        activationListLength: "1"

@@ -13,6 +13,12 @@ export class JobEntity {
   id!: string;
 
   @Column({ type: 'varchar', length: 255 })
+  uploadId!: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  userId!: string;
+
+  @Column({ type: 'varchar', length: 255 })
   fileKey!: string;
 
   @Column({ type: 'enum', enum: EJobStatus, default: EJobStatus.PENDING })
@@ -20,6 +26,9 @@ export class JobEntity {
 
   @Column({ type: 'int', default: 0 })
   progress!: number;
+
+  @Column({ type: 'json', nullable: true })
+  metadata!: Record<string, unknown>;
 
   @CreateDateColumn()
   createdAt!: Date;
